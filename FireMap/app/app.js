@@ -17,7 +17,6 @@
                // establish authentication
                $rootScope.auth = loginService.init('/login');
                var user = $rootScope.auth.$getCurrentUser();
-               $rootScope.FBURL = FBURL;
                var ref = new Firebase(FBURL);
 
                // is the user logged in?
@@ -26,16 +25,15 @@
                    ref.child('users/' + response.uid).once('value', function (snap) {
                        $rootScope.$apply(function () {
                            $rootScope.user = snap.val();
+                           // set  the site wide updates for new locations
+                           ref.child('locations').endAt().limit(1).on("child_added", function (snapshot) {
+                               var newLocation = Location.create(snapshot.val());
+                               toaster.pop('info', newLocation.toasterTitle(), '');
+                           });
                        });
                    });
                });
 
-               if ($rootScope.user) {
-                   ref.child('locations/').endAt().limit(1).on("child_added", function (snapshot) {
-                       var newLocation = Location.create(snapshot.val());
-                       toaster.pop('info', newLocation.toasterTitle(), '');
-                   });
-               }
            }
        }]);
 
