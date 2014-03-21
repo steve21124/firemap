@@ -1,0 +1,44 @@
+
+<div class="container">
+    <h2 class="text-center">Account</h2>
+    <div data-ng-show="err" class="alert alert-danger fade in">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <strong>Holy guacamole!</strong> {{err}}
+    </div>
+    <div data-ng-show="msg" class="alert alert-success fade in">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <strong>Success!</strong> {{msg}}
+    </div>
+
+    <form>
+        <div class="input-group col-xs-12">
+            <input type="text" data-ng-model="user.initials" class="form-control" placeholder="Initials">
+        </div>
+    </form>
+
+    <form>
+        <div class="input-group col-xs-12">
+            <span class="input-group-addon">@</span>
+            <input type="email" data-ng-model="user.email" class="form-control" placeholder="Email">
+        </div>
+        <div class="input-group col-xs-12">
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-lock"></span>
+            </span>
+            <input type="password" data-ng-model="oldpass" class="form-control" placeholder="Old Password">
+        </div>
+        <div class="input-group col-xs-12">
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-lock"></span>
+            </span>
+            <input type="password" data-ng-model="newpass" class="form-control" placeholder="New Password">
+        </div>
+        <div class="input-group col-xs-12">
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-lock"></span>
+            </span>
+            <input type="password" ng-keypress="reset()" ng-model="confirm" class="form-control" placeholder="Confirm Password">
+        </div>
+        <button class="btn btn-block btn-success" ng-click="updatePassword()">Update Password</button>
+    </form>
+</div>

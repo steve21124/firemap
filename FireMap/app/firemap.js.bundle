@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bundle minify="true" runOnBuild="true" output="firemap.js">
+  <!--The order of the <file> elements determines the order of the file contents when bundled.-->
+  
+  <!-- Libraries -->
+	<file>/lib/js/underscore.js</file>
+  
+  <!-- App Config -->
+  <file>/app/appSettings.js</file>
+  <file>/app/config/config.js</file>
+  <file>/app/app.js</file>
+	<file>/app/config/routes.js</file>
+  
+  <!-- External Modules -->
+  <file>/app/common/service.firebase.js</file>
+	<file>/app/auth/service.login.js</file>
+  <file>/app/config/module.routeSecurity.js</file>
+  <file>/app/config/module.waitForAuth.js</file>
+	<file>/lib/js/angular-google-maps.min.js</file>
+	<file>/lib/js/angular-toaster.js</file>
+  
+  <!-- Internal Modules -->
+  <file>/app/common/controllers.js</file>
+  <file>/app/common/services.js</file>
+  <file>/app/common/filters.js</file>
+  <file>/app/common/directives.js</file>
+  
+  <!-- Models -->
+  <file>/app/map/Location.js</file>
+  
+  <!-- Controllers -->
+  <file>/app/home/HomeCtrl.js</file>
+  <file>/app/account/AccountCtrl.js</file>
+  <file>/app/auth/LoginCtrl.js</file>
+	<file>/app/auth/LogoutCtrl.js</file>
+	<file>/app/map/MapCtrl.js</file>
+	<file>/app/chat/ChatCtrl.js</file>
+  
+  <!-- Services -->
+  
+  <!-- Filters -->
+  
+  <!-- Directives -->
+
+</bundle>

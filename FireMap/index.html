@@ -1,0 +1,63 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>My AngularJS App</title>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="lib/css/firemap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#!/" class="navbar-brand">Fire Map</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-ng-if="!user">
+                        <a href="/#!/login">Login</a>
+                    </li>
+                    <li data-ng-if="user">
+                        <a href="/#!/account">{{ user.email }}</a>
+                    </li>
+                    <li data-ng-if="user">
+                        <a href="/#!/chat">Chat</a>
+                    </li>
+                    <li data-ng-if="user">
+                        <a href="/#!/map">Map</a>
+                    </li>
+                    <li data-ng-if="user">
+                        <a href="/#!/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div data-ng-view></div>
+    <br />
+    <br />
+    <div class="container">
+        <footer>FireMap v<span app-version></span></footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/v0/firebase-simple-login.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-animate.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+    <script src='http://maps.googleapis.com/maps/api/js?sensor=false'></script>
+    <script src="app/firemap.js"></script>
+
+</body>
+</html>
