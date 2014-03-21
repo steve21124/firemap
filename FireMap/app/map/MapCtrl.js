@@ -26,11 +26,11 @@
                 $scope.checkIn = function () {
                     if ($scope.supportsGeo) {
                         $window.navigator.geolocation.getCurrentPosition(function (position) {
-
+                            console.log($scope.user);
                             var newLocation = Location.create({
                                 latitude: position.coords.latitude,
                                 longitude: position.coords.longitude,
-                                user: $scope.user,
+                                initials: $scope.user.initials,
                                 date: new Date()
                             });
 

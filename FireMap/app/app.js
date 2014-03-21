@@ -25,6 +25,7 @@
                    ref.child('users/' + response.uid).once('value', function (snap) {
                        $rootScope.$apply(function () {
                            $rootScope.user = snap.val();
+                           console.log($rootScope.user);
                            // set  the site wide updates for new locations
                            ref.child('locations').endAt().limit(1).on("child_added", function (snapshot) {
                                var newLocation = Location.create(snapshot.val());

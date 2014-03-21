@@ -1438,6 +1438,7 @@
                    ref.child('users/' + response.uid).once('value', function (snap) {
                        $rootScope.$apply(function () {
                            $rootScope.user = snap.val();
+                           console.log($rootScope.user);
                            // set  the site wide updates for new locations
                            ref.child('locations').endAt().limit(1).on("child_added", function (snapshot) {
                                var newLocation = Location.create(snapshot.val());
@@ -2090,12 +2091,12 @@ function ($compile, $timeout, $sce, toasterConfig, toaster) {
             this.latitude = params.latitude;
             this.longitude = params.longitude;
             this.title = params.title;
-            this.user = params.user;
+            this.initials = params.initials;
             this.date = convertToUTC(new Date(params.date));
         };
 
         Location.prototype.toasterTitle = function () {
-            return this.user.email + " has just checked in at " + this.latitude + ", " + this.longitude + ".";
+            return this.initials + " has just checked in at " + this.latitude + ", " + this.longitude + ".";
         };
 
         Location.prototype.toMarkerOptions = function () {
@@ -2304,11 +2305,11 @@ function ($compile, $timeout, $sce, toasterConfig, toaster) {
                 $scope.checkIn = function () {
                     if ($scope.supportsGeo) {
                         $window.navigator.geolocation.getCurrentPosition(function (position) {
-
+                            console.log($scope.user);
                             var newLocation = Location.create({
                                 latitude: position.coords.latitude,
                                 longitude: position.coords.longitude,
-                                user: $scope.user,
+                                initials: $scope.user.initials,
                                 date: new Date()
                             });
 

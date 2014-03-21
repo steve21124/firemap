@@ -1,7 +1,7 @@
 ﻿<google-map center="map.center" zoom="map.zoom" draggable="true">
     <markers models="map.markers" coords="'self'" click="'onClicked'" fit='false'>
         <windows show="'showWindow'" closeclick="'closeClick'" ng-cloak>
-            <p>{{ user.email }} was here!</p>
+            <p>{{ initials }} was here!</p>
             <p>{{ date }}</p>
             <p ng-non-bindable>{{ latitude | number:4 }}, {{ longitude | number:4 }}!</p>
         </windows>
@@ -11,7 +11,7 @@
 
     <div class="chat-panel">
         <div class="chat-item" data-ng-repeat="location in locations" data-ng-click="setCenter(location)">
-            <strong>{{ location.user.email }}:</strong> {{ location.latitude | number:4 }}, {{ location.longitude | number:4 }}
+            <strong>{{ location.initials }}:</strong> {{ location.latitude | number:4 }}, {{ location.longitude | number:4 }}
         </div>
     </div>
     <button id="btCheckIn" class="btn btn-block btn-success" type="button" data-ng-click="checkIn()">Check In</button>

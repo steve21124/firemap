@@ -16,12 +16,12 @@
             this.latitude = params.latitude;
             this.longitude = params.longitude;
             this.title = params.title;
-            this.user = params.user;
+            this.initials = params.initials;
             this.date = convertToUTC(new Date(params.date));
         };
 
         Location.prototype.toasterTitle = function () {
-            return this.user.email + " has just checked in at " + this.latitude + ", " + this.longitude + ".";
+            return this.initials + " has just checked in at " + this.latitude + ", " + this.longitude + ".";
         };
 
         Location.prototype.toMarkerOptions = function () {
